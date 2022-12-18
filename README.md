@@ -2,7 +2,12 @@ Preview a TextStyle based on Material Design's Typography
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Ever been confused by TextStyle names?
+text_style_preview allows you to easily preview TextStyle
+
+https://user-images.githubusercontent.com/90010509/208287764-b59d4261-ec4d-4eee-b7b3-e7cec51e97ad.mov
+
+
 
 ## Getting started
 
