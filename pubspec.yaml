@@ -1,11 +1,12 @@
 name: text_style_preview
-description: A new Flutter package project.
+description: Preview a TextStyle based on Material Design's Typography
 version: 0.0.1
-homepage:
+homepage: https://twitter.com/K9i_apps
+repository: https://github.com/K9i-0/text_style_preview
 
 environment:
   sdk: '>=2.18.6 <3.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=3.3.10"
 
 dependencies:
   flutter:
