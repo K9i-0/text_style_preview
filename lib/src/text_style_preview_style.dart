@@ -1,13 +1,13 @@
 part of '../text_style_preview.dart';
 
-class TextThemePreviewStyle extends ThemeExtension<TextThemePreviewStyle> {
+class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
   final Color? backgroundColor;
   final Color? barrierColor;
   final double? modalHeight;
   final LaunchType? launchType;
   final bool? showDivider;
   final DescriptionBuilder? descriptionBuilder;
-  const TextThemePreviewStyle({
+  const TextStylePreviewStyle({
     this.backgroundColor,
     this.barrierColor,
     this.modalHeight,
@@ -17,8 +17,8 @@ class TextThemePreviewStyle extends ThemeExtension<TextThemePreviewStyle> {
   });
 
   @override
-  ThemeExtension<TextThemePreviewStyle> copyWith() {
-    return TextThemePreviewStyle(
+  ThemeExtension<TextStylePreviewStyle> copyWith() {
+    return TextStylePreviewStyle(
       backgroundColor: backgroundColor,
       barrierColor: barrierColor,
       modalHeight: modalHeight,
@@ -29,8 +29,8 @@ class TextThemePreviewStyle extends ThemeExtension<TextThemePreviewStyle> {
   }
 
   @override
-  ThemeExtension<TextThemePreviewStyle> lerp(
-      ThemeExtension<TextThemePreviewStyle>? other, double t) {
+  ThemeExtension<TextStylePreviewStyle> lerp(
+      ThemeExtension<TextStylePreviewStyle>? other, double t) {
     return this;
   }
 }

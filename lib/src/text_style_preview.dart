@@ -17,7 +17,7 @@ class TextStylePreview extends StatefulWidget {
   final bool enabled;
   final TextThemeType initTextThemeType;
   final TextStyleConverter? applyCustomStyle;
-  final TextThemePreviewStyle? style;
+  final TextStylePreviewStyle? style;
   const TextStylePreview({
     super.key,
     required this.child,
@@ -46,23 +46,24 @@ class _TextStylePreviewState extends State<TextStylePreview> {
       return widget.child;
     }
 
-    final defaultTextThemePreviewStyle =
-        Theme.of(context).extension<TextThemePreviewStyle>();
-    final textThemePreviewStyle = widget.style;
-    final backgroundColor = textThemePreviewStyle?.backgroundColor ??
-        defaultTextThemePreviewStyle?.backgroundColor;
-    final barrierColor = textThemePreviewStyle?.barrierColor ??
-        defaultTextThemePreviewStyle?.barrierColor;
-    final modalHeight = textThemePreviewStyle?.modalHeight ??
-        defaultTextThemePreviewStyle?.modalHeight;
-    final launchType = textThemePreviewStyle?.launchType ??
-        defaultTextThemePreviewStyle?.launchType ??
+    final defaultTextStylePreviewStyle =
+        Theme.of(context).extension<TextStylePreviewStyle>();
+    final textStylePreviewStyle = widget.style;
+
+    final backgroundColor = textStylePreviewStyle?.backgroundColor ??
+        defaultTextStylePreviewStyle?.backgroundColor;
+    final barrierColor = textStylePreviewStyle?.barrierColor ??
+        defaultTextStylePreviewStyle?.barrierColor;
+    final modalHeight = textStylePreviewStyle?.modalHeight ??
+        defaultTextStylePreviewStyle?.modalHeight;
+    final launchType = textStylePreviewStyle?.launchType ??
+        defaultTextStylePreviewStyle?.launchType ??
         LaunchType.onTap;
-    final showDivider = textThemePreviewStyle?.showDivider ??
-        defaultTextThemePreviewStyle?.showDivider ??
+    final showDivider = textStylePreviewStyle?.showDivider ??
+        defaultTextStylePreviewStyle?.showDivider ??
         false;
-    final descriptionBuilder = textThemePreviewStyle?.descriptionBuilder ??
-        defaultTextThemePreviewStyle?.descriptionBuilder;
+    final descriptionBuilder = textStylePreviewStyle?.descriptionBuilder ??
+        defaultTextStylePreviewStyle?.descriptionBuilder;
 
     showPreviewSheet() => showModalBottomSheet(
           context: context,

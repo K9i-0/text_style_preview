@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         // set default stye like this
         extensions: const [
-          TextThemePreviewStyle(
+          TextStylePreviewStyle(
             showDivider: false,
           ),
         ],
@@ -53,7 +53,7 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
                   fontSizeFactor: 1.5,
                 ),
                 // set stye like this
-                style: TextThemePreviewStyle(
+                style: TextStylePreviewStyle(
                   modalHeight: 300,
                   barrierColor: Colors.transparent,
                   showDivider: true,
