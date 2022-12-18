@@ -40,12 +40,18 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              // basic usage
               const TextStylePreview(
                 child: Text('Sample Text'),
               ),
               const SizedBox(height: 20),
+              // advanced usage
               TextStylePreview(
                 initTextThemeType: TextThemeType.headlineSmall,
+                applyCustomStyle: (textStyle) => textStyle.apply(
+                  color: Colors.blue,
+                  fontSizeFactor: 1.5,
+                ),
                 // set stye like this
                 style: TextThemePreviewStyle(
                   modalHeight: 300,

@@ -2,17 +2,28 @@ part of '../text_style_preview.dart';
 
 typedef DescriptionBuilder = String Function(
     TextThemeType textThemeType, TextStyle textStyle);
+typedef TextStyleConverter = TextStyle Function(TextStyle textStyle);
+
+extension _TextThemeTypeEx2 on TextThemeType {
+  TextStyle customStyleAppliedTextStyle(
+      BuildContext context, TextStyleConverter? converter) {
+    final textStyle = this.textStyle(context);
+    return converter != null ? converter(textStyle) : textStyle;
+  }
+}
 
 class TextStylePreview extends StatefulWidget {
   final Text child;
   final bool enabled;
   final TextThemeType initTextThemeType;
+  final TextStyleConverter? applyCustomStyle;
   final TextThemePreviewStyle? style;
   const TextStylePreview({
     super.key,
     required this.child,
     this.enabled = true,
     this.initTextThemeType = TextThemeType.bodyMedium,
+    this.applyCustomStyle,
     this.style,
   });
 
@@ -81,6 +92,7 @@ class _TextStylePreviewState extends State<TextStylePreview> {
                             });
                           },
                           descriptionBuilder: descriptionBuilder,
+                          applyCustomStyle: widget.applyCustomStyle,
                           child: widget.child,
                         ),
                       ),
@@ -104,7 +116,10 @@ class _TextStylePreviewState extends State<TextStylePreview> {
         }
       },
       child: DefaultTextStyle(
-        style: _selectedTextThemeType.textStyle(context),
+        style: _selectedTextThemeType.customStyleAppliedTextStyle(
+          context,
+          widget.applyCustomStyle,
+        ),
         child: widget.child,
       ),
     );
@@ -116,6 +131,7 @@ class _TextThemeItem extends StatelessWidget {
   final TextThemeType textThemeType;
   final VoidCallback onTap;
   final DescriptionBuilder? descriptionBuilder;
+  final TextStyleConverter? applyCustomStyle;
   final Text child;
   const _TextThemeItem({
     required this.selectedTextThemeType,
@@ -123,6 +139,7 @@ class _TextThemeItem extends StatelessWidget {
     required this.onTap,
     required this.child,
     required this.descriptionBuilder,
+    required this.applyCustomStyle,
   });
 
   @override
@@ -135,16 +152,28 @@ class _TextThemeItem extends StatelessWidget {
             : Colors.transparent,
       ),
       title: DefaultTextStyle(
-        style: textThemeType.textStyle(context),
+        style: textThemeType.customStyleAppliedTextStyle(
+          context,
+          applyCustomStyle,
+        ),
         child: child,
       ),
       subtitle: Text(
         descriptionBuilder != null
             ? descriptionBuilder!(
                 textThemeType,
-                textThemeType.textStyle(context),
+                textThemeType.customStyleAppliedTextStyle(
+                  context,
+                  applyCustomStyle,
+                ),
               )
-            : textThemeType.textStyle(context).debugLabel.toString(),
+            : textThemeType
+                .customStyleAppliedTextStyle(
+                  context,
+                  applyCustomStyle,
+                )
+                .debugLabel
+                .toString(),
       ),
       onTap: onTap,
     );

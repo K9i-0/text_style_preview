@@ -7,9 +7,3 @@ part 'src/launch_type.dart';
 part 'src/text_style_preview.dart';
 part 'src/text_theme_preview_style.dart';
 part 'src/text_theme_type.dart';
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
