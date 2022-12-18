@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: true,
+        primarySwatch: Colors.red,
       ),
       home: const TextStylePreviewDemoScreen(),
     );
@@ -28,9 +29,26 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Text Style Preview Demo'),
       ),
-      body: const Center(
-        child: TextStylePreview(
-          child: Text('Sample Text'),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            children: [
+              const TextStylePreview(
+                child: Text('Sample Text'),
+              ),
+              const SizedBox(height: 20),
+              TextStylePreview(
+                modalHeight: 300,
+                barrierColor: Colors.transparent,
+                showDivider: true,
+                initTextThemeType: TextThemeType.headlineSmall,
+                descriptionBuilder: (textThemeType, textStyle) =>
+                    textThemeType.name,
+                child: const Text('Sample Text2'),
+              ),
+            ],
+          ),
         ),
       ),
     );

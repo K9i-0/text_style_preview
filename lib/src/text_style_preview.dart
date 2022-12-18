@@ -1,103 +1,144 @@
 part of '../text_style_preview.dart';
 
+typedef DescriptionBuilder = String Function(
+    TextThemeType textThemeType, TextStyle textStyle);
+
 class TextStylePreview extends StatefulWidget {
   final Text child;
-  const TextStylePreview({super.key, required this.child});
+  final bool enabled;
+  final TextThemeType initTextThemeType;
+  final Color? backgroundColor;
+  final Color? barrierColor;
+  final double? modalHeight;
+  final LaunchType launchType;
+  final bool showDivider;
+  final DescriptionBuilder? descriptionBuilder;
+  const TextStylePreview({
+    super.key,
+    required this.child,
+    this.enabled = true,
+    this.initTextThemeType = TextThemeType.bodyMedium,
+    this.backgroundColor,
+    this.barrierColor,
+    this.modalHeight,
+    this.launchType = LaunchType.onTap,
+    this.showDivider = false,
+    this.descriptionBuilder,
+  });
 
   @override
   State<TextStylePreview> createState() => _TextStylePreviewState();
 }
 
 class _TextStylePreviewState extends State<TextStylePreview> {
-  int _index = 0;
+  late TextThemeType _selectedTextThemeType;
+
+  @override
+  void initState() {
+    _selectedTextThemeType = widget.initTextThemeType;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final typographyList = [
-      textTheme.displayLarge,
-      textTheme.displayMedium,
-      textTheme.displaySmall,
-      textTheme.headlineLarge,
-      textTheme.headlineMedium,
-      textTheme.headlineSmall,
-      textTheme.titleLarge,
-      textTheme.titleMedium,
-      textTheme.titleSmall,
-      textTheme.labelLarge,
-      textTheme.labelMedium,
-      textTheme.labelSmall,
-      textTheme.bodyLarge,
-      textTheme.bodyMedium,
-      textTheme.bodySmall,
-    ];
+    if (!kDebugMode || !widget.enabled) {
+      return widget.child;
+    }
 
-    return GestureDetector(
-      onTap: () {
-        // シートを表示
-        // showModalBottomSheet(
-        //   context: context,
-        //   builder: (context) {
-        //     return ListView.builder(
-        //       shrinkWrap: true,
-        //       itemCount: typographyList.length - 11,
-        //       itemBuilder: (context, index) {
-        //         return ListTile(
-        //           title: DefaultTextStyle(
-        //             style: typographyList[index]!,
-        //             child: widget.child,
-        //           ),
-        //           onTap: () {
-        //             setState(() {
-        //               _index = index;
-        //             });
-        //             Navigator.pop(context);
-        //           },
-        //         );
-        //       },
-        //     );
-        //   },
-        // );
-        showModalBottomSheet(
+    showPreviewSheet() => showModalBottomSheet(
           context: context,
-          backgroundColor: Colors.black54,
-          barrierColor: Colors.transparent,
+          backgroundColor: widget.backgroundColor,
+          barrierColor: widget.barrierColor,
           builder: (context) {
-            return SizedBox(
-              height: 250,
-              child: PageView.builder(
-                controller: PageController(viewportFraction: 0.8),
-                onPageChanged: (value) {
-                  setState(() {
-                    _index = value;
-                  });
-                },
-                itemCount: typographyList.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: DefaultTextStyle(
-                      style: typographyList[index]!,
-                      child: widget.child,
+            return StatefulBuilder(
+              builder: (context, setModalState) => SizedBox(
+                height: widget.modalHeight,
+                child: Column(
+                  children: [
+                    if (widget.showDivider) const Divider(),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: TextThemeType.values.length,
+                        itemBuilder: (context, index) => _TextThemeItem(
+                          textThemeType: TextThemeType.values[index],
+                          selectedTextThemeType: _selectedTextThemeType,
+                          onTap: () {
+                            setState(() {
+                              _selectedTextThemeType =
+                                  TextThemeType.values[index];
+                            });
+                            setModalState(() {
+                              _selectedTextThemeType =
+                                  TextThemeType.values[index];
+                            });
+                          },
+                          descriptionBuilder: widget.descriptionBuilder,
+                          child: widget.child,
+                        ),
+                      ),
                     ),
-                    subtitle:
-                        Text(typographyList[index]!.debugLabel.toString()),
-                    onTap: () {
-                      setState(() {
-                        _index = index;
-                      });
-                      Navigator.pop(context);
-                    },
-                  );
-                },
+                  ],
+                ),
               ),
             );
           },
         );
+
+    return GestureDetector(
+      onTap: () {
+        if (widget.launchType == LaunchType.onTap) {
+          showPreviewSheet.call();
+        }
+      },
+      onLongPress: () {
+        if (widget.launchType == LaunchType.onLongPress) {
+          showPreviewSheet.call();
+        }
       },
       child: DefaultTextStyle(
-        style: typographyList[_index]!,
+        style: _selectedTextThemeType.textStyle(context),
         child: widget.child,
       ),
+    );
+  }
+}
+
+class _TextThemeItem extends StatelessWidget {
+  final TextThemeType selectedTextThemeType;
+  final TextThemeType textThemeType;
+  final VoidCallback onTap;
+  final DescriptionBuilder? descriptionBuilder;
+  final Text child;
+  const _TextThemeItem({
+    required this.selectedTextThemeType,
+    required this.textThemeType,
+    required this.onTap,
+    required this.child,
+    required this.descriptionBuilder,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(
+        Icons.check,
+        color: selectedTextThemeType == textThemeType
+            ? Theme.of(context).colorScheme.primary
+            : Colors.transparent,
+      ),
+      title: DefaultTextStyle(
+        style: textThemeType.textStyle(context),
+        child: child,
+      ),
+      subtitle: Text(
+        descriptionBuilder != null
+            ? descriptionBuilder!(
+                textThemeType,
+                textThemeType.textStyle(context),
+              )
+            : textThemeType.textStyle(context).debugLabel.toString(),
+      ),
+      onTap: onTap,
     );
   }
 }
