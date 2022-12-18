@@ -7,23 +7,13 @@ class TextStylePreview extends StatefulWidget {
   final Text child;
   final bool enabled;
   final TextThemeType initTextThemeType;
-  final Color? backgroundColor;
-  final Color? barrierColor;
-  final double? modalHeight;
-  final LaunchType launchType;
-  final bool showDivider;
-  final DescriptionBuilder? descriptionBuilder;
+  final TextThemePreviewStyle? style;
   const TextStylePreview({
     super.key,
     required this.child,
     this.enabled = true,
     this.initTextThemeType = TextThemeType.bodyMedium,
-    this.backgroundColor,
-    this.barrierColor,
-    this.modalHeight,
-    this.launchType = LaunchType.onTap,
-    this.showDivider = false,
-    this.descriptionBuilder,
+    this.style,
   });
 
   @override
@@ -45,17 +35,35 @@ class _TextStylePreviewState extends State<TextStylePreview> {
       return widget.child;
     }
 
+    final defaultTextThemePreviewStyle =
+        Theme.of(context).extension<TextThemePreviewStyle>();
+    final textThemePreviewStyle = widget.style;
+    final backgroundColor = textThemePreviewStyle?.backgroundColor ??
+        defaultTextThemePreviewStyle?.backgroundColor;
+    final barrierColor = textThemePreviewStyle?.barrierColor ??
+        defaultTextThemePreviewStyle?.barrierColor;
+    final modalHeight = textThemePreviewStyle?.modalHeight ??
+        defaultTextThemePreviewStyle?.modalHeight;
+    final launchType = textThemePreviewStyle?.launchType ??
+        defaultTextThemePreviewStyle?.launchType ??
+        LaunchType.onTap;
+    final showDivider = textThemePreviewStyle?.showDivider ??
+        defaultTextThemePreviewStyle?.showDivider ??
+        false;
+    final descriptionBuilder = textThemePreviewStyle?.descriptionBuilder ??
+        defaultTextThemePreviewStyle?.descriptionBuilder;
+
     showPreviewSheet() => showModalBottomSheet(
           context: context,
-          backgroundColor: widget.backgroundColor,
-          barrierColor: widget.barrierColor,
+          backgroundColor: backgroundColor,
+          barrierColor: barrierColor,
           builder: (context) {
             return StatefulBuilder(
               builder: (context, setModalState) => SizedBox(
-                height: widget.modalHeight,
+                height: modalHeight,
                 child: Column(
                   children: [
-                    if (widget.showDivider) const Divider(),
+                    if (showDivider) const Divider(),
                     Expanded(
                       child: ListView.builder(
                         itemCount: TextThemeType.values.length,
@@ -72,7 +80,7 @@ class _TextStylePreviewState extends State<TextStylePreview> {
                                   TextThemeType.values[index];
                             });
                           },
-                          descriptionBuilder: widget.descriptionBuilder,
+                          descriptionBuilder: descriptionBuilder,
                           child: widget.child,
                         ),
                       ),
@@ -86,12 +94,12 @@ class _TextStylePreviewState extends State<TextStylePreview> {
 
     return GestureDetector(
       onTap: () {
-        if (widget.launchType == LaunchType.onTap) {
+        if (launchType == LaunchType.onTap) {
           showPreviewSheet.call();
         }
       },
       onLongPress: () {
-        if (widget.launchType == LaunchType.onLongPress) {
+        if (launchType == LaunchType.onLongPress) {
           showPreviewSheet.call();
         }
       },

@@ -14,6 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.red,
+        // set default stye like this
+        extensions: const [
+          TextThemePreviewStyle(
+            modalHeight: 200,
+          ),
+        ],
       ),
       home: const TextStylePreviewDemoScreen(),
     );
@@ -39,12 +45,15 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextStylePreview(
-                modalHeight: 300,
-                barrierColor: Colors.transparent,
-                showDivider: true,
                 initTextThemeType: TextThemeType.headlineSmall,
-                descriptionBuilder: (textThemeType, textStyle) =>
-                    textThemeType.name,
+                // set stye like this
+                style: TextThemePreviewStyle(
+                  modalHeight: 300,
+                  barrierColor: Colors.transparent,
+                  showDivider: true,
+                  descriptionBuilder: (textThemeType, textStyle) =>
+                      textThemeType.name,
+                ),
                 child: const Text('Sample Text2'),
               ),
             ],
