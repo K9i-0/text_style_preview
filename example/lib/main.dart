@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         // set default stye like this
         extensions: const [
           TextThemePreviewStyle(
-            modalHeight: 200,
+            showDivider: false,
           ),
         ],
       ),

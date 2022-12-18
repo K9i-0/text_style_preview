@@ -5,7 +5,10 @@ Preview a TextStyle based on Material Design's Typography
 Ever been confused by TextStyle names?
 text_style_preview allows you to easily preview TextStyle
 
-https://user-images.githubusercontent.com/90010509/208287764-b59d4261-ec4d-4eee-b7b3-e7cec51e97ad.mov
+<p align="center">
+  <img src="https://github.com/K9i-0/text_style_preview/raw/master/K9i-0/text_style_preview.gif" alt="Device Preview for Flutter" />
+</p>
+
 
 
 
