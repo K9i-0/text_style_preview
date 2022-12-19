@@ -1,5 +1,8 @@
 part of '../text_style_preview.dart';
 
+/// The scale category of the [TextStyle].
+///
+/// https://m3.material.io/styles/typography/type-scale-tokens
 enum ScaleCategory {
   displayLarge,
   displayMedium,

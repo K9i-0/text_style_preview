@@ -12,11 +12,29 @@ extension _ScaleCategoryEx2 on ScaleCategory {
   }
 }
 
+///The widget to preview the [TextStyle] of the [Text].
+///
+/// The [TextStylePreview] is only enabled in debug mode.
+///
+/// The [TextStylePreview] can be launched by tapping or long pressing on the [Text].
+///
+/// The [TextStylePreview] can be customized by [TextStylePreviewStyle].
+///
+/// The [TextStylePreview] can apply a custom style to the [Text] by [TextStyleConverter].
 class TextStylePreview extends StatefulWidget {
+  /// The [Text] to preview the [TextStyle].
   final Text child;
+
+  /// Whether the [TextStylePreview] is enabled.
   final bool enabled;
+
+  /// The initial scale category of the [TextStyle].
   final ScaleCategory initScaleCategory;
+
+  /// The custom style to apply to the [TextStyle].
   final TextStyleConverter? applyCustomStyle;
+
+  /// The style to customize the [TextStylePreview].
   final TextStylePreviewStyle? style;
   const TextStylePreview({
     super.key,
