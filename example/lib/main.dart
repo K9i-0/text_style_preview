@@ -47,7 +47,7 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
               const SizedBox(height: 20),
               // advanced usage
               TextStylePreview(
-                initTextThemeType: TextThemeType.headlineSmall,
+                initScaleCategory: ScaleCategory.headlineSmall,
                 applyCustomStyle: (textStyle) => textStyle.apply(
                   color: Colors.blue,
                   fontSizeFactor: 1.5,
@@ -57,8 +57,8 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
                   modalHeight: 300,
                   barrierColor: Colors.transparent,
                   showDivider: true,
-                  descriptionBuilder: (textThemeType, textStyle) =>
-                      textThemeType.name,
+                  descriptionBuilder: (scaleCategory, textStyle) =>
+                      scaleCategory.name,
                 ),
                 child: const Text('Sample Text2'),
               ),
