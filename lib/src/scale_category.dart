@@ -1,6 +1,6 @@
 part of '../text_style_preview.dart';
 
-enum TextThemeType {
+enum ScaleCategory {
   displayLarge,
   displayMedium,
   displaySmall,
@@ -18,39 +18,39 @@ enum TextThemeType {
   bodySmall,
 }
 
-extension _TextThemeTypeEx on TextThemeType {
+extension _ScaleCategoryEx on ScaleCategory {
   TextStyle textStyle(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     switch (this) {
-      case TextThemeType.displayLarge:
+      case ScaleCategory.displayLarge:
         return textTheme.displayLarge!;
-      case TextThemeType.displayMedium:
+      case ScaleCategory.displayMedium:
         return textTheme.displayMedium!;
-      case TextThemeType.displaySmall:
+      case ScaleCategory.displaySmall:
         return textTheme.displaySmall!;
-      case TextThemeType.headlineLarge:
+      case ScaleCategory.headlineLarge:
         return textTheme.headlineLarge!;
-      case TextThemeType.headlineMedium:
+      case ScaleCategory.headlineMedium:
         return textTheme.headlineMedium!;
-      case TextThemeType.headlineSmall:
+      case ScaleCategory.headlineSmall:
         return textTheme.headlineSmall!;
-      case TextThemeType.titleLarge:
+      case ScaleCategory.titleLarge:
         return textTheme.titleLarge!;
-      case TextThemeType.titleMedium:
+      case ScaleCategory.titleMedium:
         return textTheme.titleMedium!;
-      case TextThemeType.titleSmall:
+      case ScaleCategory.titleSmall:
         return textTheme.titleSmall!;
-      case TextThemeType.labelLarge:
+      case ScaleCategory.labelLarge:
         return textTheme.labelLarge!;
-      case TextThemeType.labelMedium:
+      case ScaleCategory.labelMedium:
         return textTheme.labelMedium!;
-      case TextThemeType.labelSmall:
+      case ScaleCategory.labelSmall:
         return textTheme.labelSmall!;
-      case TextThemeType.bodyLarge:
+      case ScaleCategory.bodyLarge:
         return textTheme.bodyLarge!;
-      case TextThemeType.bodyMedium:
+      case ScaleCategory.bodyMedium:
         return textTheme.bodyMedium!;
-      case TextThemeType.bodySmall:
+      case ScaleCategory.bodySmall:
         return textTheme.bodySmall!;
     }
   }
