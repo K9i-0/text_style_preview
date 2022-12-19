@@ -7,6 +7,7 @@ class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
   final LaunchType? launchType;
   final bool? showDivider;
   final DescriptionBuilder? descriptionBuilder;
+  final bool? reverse;
   const TextStylePreviewStyle({
     this.backgroundColor,
     this.barrierColor,
@@ -14,6 +15,7 @@ class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
     this.launchType,
     this.showDivider,
     this.descriptionBuilder,
+    this.reverse,
   });
 
   @override
@@ -25,6 +27,7 @@ class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
       launchType: launchType,
       showDivider: showDivider,
       descriptionBuilder: descriptionBuilder,
+      reverse: reverse,
     );
   }
 

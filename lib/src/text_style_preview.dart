@@ -64,6 +64,12 @@ class _TextStylePreviewState extends State<TextStylePreview> {
         false;
     final descriptionBuilder = textStylePreviewStyle?.descriptionBuilder ??
         defaultTextStylePreviewStyle?.descriptionBuilder;
+    final reverse = textStylePreviewStyle?.reverse ??
+        defaultTextStylePreviewStyle?.reverse ??
+        false;
+
+    final textThemeTypeValues =
+        reverse ? TextThemeType.values.reversed.toList() : TextThemeType.values;
 
     showPreviewSheet() => showModalBottomSheet(
           context: context,
@@ -78,18 +84,18 @@ class _TextStylePreviewState extends State<TextStylePreview> {
                     if (showDivider) const Divider(),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: TextThemeType.values.length,
+                        itemCount: textThemeTypeValues.length,
                         itemBuilder: (context, index) => _TextThemeItem(
-                          textThemeType: TextThemeType.values[index],
+                          textThemeType: textThemeTypeValues[index],
                           selectedTextThemeType: _selectedTextThemeType,
                           onTap: () {
                             setState(() {
                               _selectedTextThemeType =
-                                  TextThemeType.values[index];
+                                  textThemeTypeValues[index];
                             });
                             setModalState(() {
                               _selectedTextThemeType =
-                                  TextThemeType.values[index];
+                                  textThemeTypeValues[index];
                             });
                           },
                           descriptionBuilder: descriptionBuilder,
