@@ -71,7 +71,8 @@ class _TextStylePreviewState extends State<TextStylePreview> {
     final backgroundColor = textStylePreviewStyle?.backgroundColor ??
         defaultTextStylePreviewStyle?.backgroundColor;
     final barrierColor = textStylePreviewStyle?.barrierColor ??
-        defaultTextStylePreviewStyle?.barrierColor;
+        defaultTextStylePreviewStyle?.barrierColor ??
+        Colors.transparent;
     final modalHeight = textStylePreviewStyle?.modalHeight ??
         defaultTextStylePreviewStyle?.modalHeight;
     final launchType = textStylePreviewStyle?.launchType ??
@@ -79,12 +80,15 @@ class _TextStylePreviewState extends State<TextStylePreview> {
         LaunchType.onTap;
     final showDivider = textStylePreviewStyle?.showDivider ??
         defaultTextStylePreviewStyle?.showDivider ??
-        false;
+        true;
     final descriptionBuilder = textStylePreviewStyle?.descriptionBuilder ??
         defaultTextStylePreviewStyle?.descriptionBuilder;
     final reverse = textStylePreviewStyle?.reverse ??
         defaultTextStylePreviewStyle?.reverse ??
         false;
+    final previewMaxLines = textStylePreviewStyle?.previewMaxLines ??
+        defaultTextStylePreviewStyle?.previewMaxLines ??
+        1;
 
     final scaleCategoryValues =
         reverse ? ScaleCategory.values.reversed.toList() : ScaleCategory.values;
@@ -118,6 +122,7 @@ class _TextStylePreviewState extends State<TextStylePreview> {
                           },
                           descriptionBuilder: descriptionBuilder,
                           applyCustomStyle: widget.applyCustomStyle,
+                          previewMaxLines: previewMaxLines,
                           child: widget.child,
                         ),
                       ),
@@ -157,6 +162,7 @@ class _TextThemeItem extends StatelessWidget {
   final VoidCallback onTap;
   final DescriptionBuilder? descriptionBuilder;
   final TextStyleConverter? applyCustomStyle;
+  final int? previewMaxLines;
   final Text child;
   const _TextThemeItem({
     required this.selectedScaleCategory,
@@ -165,6 +171,7 @@ class _TextThemeItem extends StatelessWidget {
     required this.child,
     required this.descriptionBuilder,
     required this.applyCustomStyle,
+    required this.previewMaxLines,
   });
 
   @override
@@ -181,6 +188,7 @@ class _TextThemeItem extends StatelessWidget {
           context,
           applyCustomStyle,
         ),
+        maxLines: previewMaxLines,
         child: child,
       ),
       subtitle: Text(
@@ -192,13 +200,7 @@ class _TextThemeItem extends StatelessWidget {
                   applyCustomStyle,
                 ),
               )
-            : scaleCategory
-                .customStyleAppliedTextStyle(
-                  context,
-                  applyCustomStyle,
-                )
-                .debugLabel
-                .toString(),
+            : scaleCategory.name,
       ),
       onTap: onTap,
     );
