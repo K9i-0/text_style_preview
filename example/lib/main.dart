@@ -58,7 +58,7 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
                   barrierColor: Colors.transparent,
                   showDivider: true,
                   descriptionBuilder: (scaleCategory, textStyle) =>
-                      scaleCategory.name,
+                      textStyle.debugLabel.toString(),
                 ),
                 child: const Text('Sample Text2'),
               ),

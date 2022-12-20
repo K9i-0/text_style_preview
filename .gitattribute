@@ -1,0 +1,3 @@
+*.cpp linguist-vendored
+*.txt linguist-vendored
+*.cmake linguist-vendored
