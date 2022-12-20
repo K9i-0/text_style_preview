@@ -1,3 +1,6 @@
+## 0.1.1
+- Make default style user-friendly.
+
 ## 0.1.0
 
 - Require Flutter sdk version changed to 3.0.0
