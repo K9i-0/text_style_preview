@@ -36,7 +36,7 @@ const TextStylePreview(
 You can customize the Preview by specifying the Style, etc.
 ```dart
 TextStylePreview(
-  initScaleCategory: ScaleCategory.headlineSmall,
+  initTypeScaleCategory: TypeScaleCategory.headlineSmall,
   applyCustomStyle: (textStyle) => textStyle.apply(
     color: Colors.blue,
     fontSizeFactor: 1.5,
@@ -46,8 +46,8 @@ TextStylePreview(
     modalHeight: 300,
     barrierColor: Colors.transparent,
     showDivider: true,
-    descriptionBuilder: (scaleCategory, textStyle) =>
-        scaleCategory.name,
+    descriptionBuilder: (typeScaleCategory, textStyle) =>
+        typeScaleCategory.name,
   ),
   child: const Text('Sample Text2'),
 ),

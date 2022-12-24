@@ -1,9 +1,9 @@
 part of '../text_style_preview.dart';
 
-/// The scale category of the [TextStyle].
+/// The type scale category of the Material Design.
 ///
 /// https://m3.material.io/styles/typography/type-scale-tokens
-enum ScaleCategory {
+enum TypeScaleCategory {
   displayLarge,
   displayMedium,
   displaySmall,
@@ -21,39 +21,39 @@ enum ScaleCategory {
   bodySmall,
 }
 
-extension _ScaleCategoryEx on ScaleCategory {
+extension _TypeScaleCategoryEx on TypeScaleCategory {
   TextStyle textStyle(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     switch (this) {
-      case ScaleCategory.displayLarge:
+      case TypeScaleCategory.displayLarge:
         return textTheme.displayLarge!;
-      case ScaleCategory.displayMedium:
+      case TypeScaleCategory.displayMedium:
         return textTheme.displayMedium!;
-      case ScaleCategory.displaySmall:
+      case TypeScaleCategory.displaySmall:
         return textTheme.displaySmall!;
-      case ScaleCategory.headlineLarge:
+      case TypeScaleCategory.headlineLarge:
         return textTheme.headlineLarge!;
-      case ScaleCategory.headlineMedium:
+      case TypeScaleCategory.headlineMedium:
         return textTheme.headlineMedium!;
-      case ScaleCategory.headlineSmall:
+      case TypeScaleCategory.headlineSmall:
         return textTheme.headlineSmall!;
-      case ScaleCategory.titleLarge:
+      case TypeScaleCategory.titleLarge:
         return textTheme.titleLarge!;
-      case ScaleCategory.titleMedium:
+      case TypeScaleCategory.titleMedium:
         return textTheme.titleMedium!;
-      case ScaleCategory.titleSmall:
+      case TypeScaleCategory.titleSmall:
         return textTheme.titleSmall!;
-      case ScaleCategory.labelLarge:
+      case TypeScaleCategory.labelLarge:
         return textTheme.labelLarge!;
-      case ScaleCategory.labelMedium:
+      case TypeScaleCategory.labelMedium:
         return textTheme.labelMedium!;
-      case ScaleCategory.labelSmall:
+      case TypeScaleCategory.labelSmall:
         return textTheme.labelSmall!;
-      case ScaleCategory.bodyLarge:
+      case TypeScaleCategory.bodyLarge:
         return textTheme.bodyLarge!;
-      case ScaleCategory.bodyMedium:
+      case TypeScaleCategory.bodyMedium:
         return textTheme.bodyMedium!;
-      case ScaleCategory.bodySmall:
+      case TypeScaleCategory.bodySmall:
         return textTheme.bodySmall!;
     }
   }

@@ -1,10 +1,10 @@
 part of '../text_style_preview.dart';
 
 typedef DescriptionBuilder = String Function(
-    ScaleCategory scaleCategory, TextStyle textStyle);
+    TypeScaleCategory typeScaleCategory, TextStyle textStyle);
 typedef TextStyleConverter = TextStyle Function(TextStyle textStyle);
 
-extension _ScaleCategoryEx2 on ScaleCategory {
+extension _TypeScaleCategoryEx2 on TypeScaleCategory {
   TextStyle customStyleAppliedTextStyle(
       BuildContext context, TextStyleConverter? converter) {
     final textStyle = this.textStyle(context);
@@ -29,7 +29,7 @@ class TextStylePreview extends StatefulWidget {
   final bool enabled;
 
   /// The initial scale category of the [TextStyle].
-  final ScaleCategory initScaleCategory;
+  final TypeScaleCategory initTypeScaleCategory;
 
   /// The custom style to apply to the [TextStyle].
   final TextStyleConverter? applyCustomStyle;
@@ -40,7 +40,7 @@ class TextStylePreview extends StatefulWidget {
     super.key,
     required this.child,
     this.enabled = true,
-    this.initScaleCategory = ScaleCategory.bodyMedium,
+    this.initTypeScaleCategory = TypeScaleCategory.bodyMedium,
     this.applyCustomStyle,
     this.style,
   });
@@ -50,11 +50,11 @@ class TextStylePreview extends StatefulWidget {
 }
 
 class _TextStylePreviewState extends State<TextStylePreview> {
-  late ScaleCategory _selectedScaleCategory;
+  late TypeScaleCategory _selectedTypeScaleCategory;
 
   @override
   void initState() {
-    _selectedScaleCategory = widget.initScaleCategory;
+    _selectedTypeScaleCategory = widget.initTypeScaleCategory;
     super.initState();
   }
 
@@ -90,8 +90,9 @@ class _TextStylePreviewState extends State<TextStylePreview> {
         defaultTextStylePreviewStyle?.previewMaxLines ??
         1;
 
-    final scaleCategoryValues =
-        reverse ? ScaleCategory.values.reversed.toList() : ScaleCategory.values;
+    final typeScaleCategoryValues = reverse
+        ? TypeScaleCategory.values.reversed.toList()
+        : TypeScaleCategory.values;
 
     showPreviewSheet() => showModalBottomSheet(
           context: context,
@@ -106,18 +107,18 @@ class _TextStylePreviewState extends State<TextStylePreview> {
                     if (showDivider) const Divider(),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: scaleCategoryValues.length,
+                        itemCount: typeScaleCategoryValues.length,
                         itemBuilder: (context, index) => _TextThemeItem(
-                          scaleCategory: scaleCategoryValues[index],
-                          selectedScaleCategory: _selectedScaleCategory,
+                          typeScaleCategory: typeScaleCategoryValues[index],
+                          selectedTypeScaleCategory: _selectedTypeScaleCategory,
                           onTap: () {
                             setState(() {
-                              _selectedScaleCategory =
-                                  scaleCategoryValues[index];
+                              _selectedTypeScaleCategory =
+                                  typeScaleCategoryValues[index];
                             });
                             setModalState(() {
-                              _selectedScaleCategory =
-                                  scaleCategoryValues[index];
+                              _selectedTypeScaleCategory =
+                                  typeScaleCategoryValues[index];
                             });
                           },
                           descriptionBuilder: descriptionBuilder,
@@ -146,7 +147,7 @@ class _TextStylePreviewState extends State<TextStylePreview> {
         }
       },
       child: DefaultTextStyle(
-        style: _selectedScaleCategory.customStyleAppliedTextStyle(
+        style: _selectedTypeScaleCategory.customStyleAppliedTextStyle(
           context,
           widget.applyCustomStyle,
         ),
@@ -157,16 +158,16 @@ class _TextStylePreviewState extends State<TextStylePreview> {
 }
 
 class _TextThemeItem extends StatelessWidget {
-  final ScaleCategory selectedScaleCategory;
-  final ScaleCategory scaleCategory;
+  final TypeScaleCategory selectedTypeScaleCategory;
+  final TypeScaleCategory typeScaleCategory;
   final VoidCallback onTap;
   final DescriptionBuilder? descriptionBuilder;
   final TextStyleConverter? applyCustomStyle;
   final int? previewMaxLines;
   final Text child;
   const _TextThemeItem({
-    required this.selectedScaleCategory,
-    required this.scaleCategory,
+    required this.selectedTypeScaleCategory,
+    required this.typeScaleCategory,
     required this.onTap,
     required this.child,
     required this.descriptionBuilder,
@@ -179,12 +180,12 @@ class _TextThemeItem extends StatelessWidget {
     return ListTile(
       leading: Icon(
         Icons.check,
-        color: selectedScaleCategory == scaleCategory
+        color: selectedTypeScaleCategory == typeScaleCategory
             ? Theme.of(context).colorScheme.primary
             : Colors.transparent,
       ),
       title: DefaultTextStyle(
-        style: scaleCategory.customStyleAppliedTextStyle(
+        style: typeScaleCategory.customStyleAppliedTextStyle(
           context,
           applyCustomStyle,
         ),
@@ -194,13 +195,13 @@ class _TextThemeItem extends StatelessWidget {
       subtitle: Text(
         descriptionBuilder != null
             ? descriptionBuilder!(
-                scaleCategory,
-                scaleCategory.customStyleAppliedTextStyle(
+                typeScaleCategory,
+                typeScaleCategory.customStyleAppliedTextStyle(
                   context,
                   applyCustomStyle,
                 ),
               )
-            : scaleCategory.name,
+            : typeScaleCategory.name,
       ),
       onTap: onTap,
     );
