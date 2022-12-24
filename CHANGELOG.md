@@ -1,3 +1,6 @@
+## 0.1.2
+- Rename ScaleCategory to TypeScaleCategory.
+
 ## 0.1.1
 - Make default style user-friendly.
 

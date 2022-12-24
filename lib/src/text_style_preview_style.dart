@@ -23,7 +23,7 @@ class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
   final bool? showDivider;
 
   /// The builder of the text style description.
-  /// Default is [(scaleCategory, textStyle) => scaleCategory.name].
+  /// Default is [(typeScaleCategory, textStyle) => typeScaleCategory.name].
   final DescriptionBuilder? descriptionBuilder;
 
   /// Whether to reverse the order of the scale categories.

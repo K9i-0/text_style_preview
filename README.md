@@ -2,7 +2,9 @@ Preview a TextStyle based on Material Design's Typography
 
 ## Features
 
-Ever been confused by TextStyle names?
+Ever been confused by Type Scale? (e.g. titleMedium, labelLarge)
+https://m3.material.io/styles/typography/type-scale-tokens
+
 text_style_preview allows you to easily preview TextStyle
 
 <p align="center">
@@ -36,7 +38,7 @@ const TextStylePreview(
 You can customize the Preview by specifying the Style, etc.
 ```dart
 TextStylePreview(
-  initScaleCategory: ScaleCategory.headlineSmall,
+  initTypeScaleCategory: TypeScaleCategory.headlineSmall,
   applyCustomStyle: (textStyle) => textStyle.apply(
     color: Colors.blue,
     fontSizeFactor: 1.5,
@@ -46,8 +48,8 @@ TextStylePreview(
     modalHeight: 300,
     barrierColor: Colors.transparent,
     showDivider: true,
-    descriptionBuilder: (scaleCategory, textStyle) =>
-        scaleCategory.name,
+    descriptionBuilder: (typeScaleCategory, textStyle) =>
+        typeScaleCategory.name,
   ),
   child: const Text('Sample Text2'),
 ),

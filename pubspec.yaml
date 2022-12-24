@@ -1,6 +1,6 @@
 name: text_style_preview
 description: Preview a TextStyle based on Material Design's Typography. No more confusion in scale selection.
-version: 0.1.1
+version: 0.1.2
 homepage: https://twitter.com/K9i_apps
 repository: https://github.com/K9i-0/text_style_preview
 
