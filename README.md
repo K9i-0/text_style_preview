@@ -2,7 +2,9 @@ Preview a TextStyle based on Material Design's Typography
 
 ## Features
 
-Ever been confused by TextStyle names?
+Ever been confused by Type Scale? (e.g. titleMedium, labelLarge)
+https://m3.material.io/styles/typography/type-scale-tokens
+
 text_style_preview allows you to easily preview TextStyle
 
 <p align="center">
