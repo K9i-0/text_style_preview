@@ -17,6 +17,10 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
+screenshots:
+  - description: 'Demo'
+    path: text_style_preivew.gif
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
