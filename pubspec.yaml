@@ -18,7 +18,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 screenshots:
-  - description: 'Demo'
+  - description: 'Simple demo'
     path: text_style_preivew.gif
 
 # For information on the generic Dart part of this file, see the
