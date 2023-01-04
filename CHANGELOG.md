@@ -1,3 +1,6 @@
+## 0.1.3
+- Add screenshots to pubspec.yaml
+
 ## 0.1.2
 - Rename ScaleCategory to TypeScaleCategory.
 
