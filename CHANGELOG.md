@@ -1,5 +1,8 @@
+## 0.1.4
+- Fix TextStylePreviewStyle copyWith.
+
 ## 0.1.3
-- Add screenshots to pubspec.yaml
+- Add screenshots to pubspec.yaml.
 
 ## 0.1.2
 - Rename ScaleCategory to TypeScaleCategory.
