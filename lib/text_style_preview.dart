@@ -1,9 +1,6 @@
 library text_style_preview;
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
-part 'src/launch_type.dart';
-part 'src/text_style_preview.dart';
-part 'src/text_style_preview_style.dart';
-part 'src/type_scale_category.dart';
+export 'src/launch_type.dart';
+export 'src/text_style_preview.dart';
+export 'src/text_style_preview_style.dart';
+export 'src/type_scale_category.dart';

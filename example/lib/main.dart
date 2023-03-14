@@ -44,7 +44,7 @@ class TextStylePreviewDemoScreen extends StatelessWidget {
               const TextStylePreview(
                 child: Text('Sample Text'),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 32),
               // advanced usage
               TextStylePreview(
                 initTypeScaleCategory: TypeScaleCategory.headlineSmall,

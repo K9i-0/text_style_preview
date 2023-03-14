@@ -1,10 +1,48 @@
-part of '../text_style_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:text_style_preview/src/launch_type.dart';
+import 'package:text_style_preview/src/text_style_preview_style.dart';
+import 'package:text_style_preview/src/type_scale_category.dart';
 
-typedef DescriptionBuilder = String Function(
-    TypeScaleCategory typeScaleCategory, TextStyle textStyle);
 typedef TextStyleConverter = TextStyle Function(TextStyle textStyle);
 
-extension _TypeScaleCategoryEx2 on TypeScaleCategory {
+extension _TypeScaleCategoryX on TypeScaleCategory {
+  TextStyle textStyle(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    switch (this) {
+      case TypeScaleCategory.displayLarge:
+        return textTheme.displayLarge!;
+      case TypeScaleCategory.displayMedium:
+        return textTheme.displayMedium!;
+      case TypeScaleCategory.displaySmall:
+        return textTheme.displaySmall!;
+      case TypeScaleCategory.headlineLarge:
+        return textTheme.headlineLarge!;
+      case TypeScaleCategory.headlineMedium:
+        return textTheme.headlineMedium!;
+      case TypeScaleCategory.headlineSmall:
+        return textTheme.headlineSmall!;
+      case TypeScaleCategory.titleLarge:
+        return textTheme.titleLarge!;
+      case TypeScaleCategory.titleMedium:
+        return textTheme.titleMedium!;
+      case TypeScaleCategory.titleSmall:
+        return textTheme.titleSmall!;
+      case TypeScaleCategory.labelLarge:
+        return textTheme.labelLarge!;
+      case TypeScaleCategory.labelMedium:
+        return textTheme.labelMedium!;
+      case TypeScaleCategory.labelSmall:
+        return textTheme.labelSmall!;
+      case TypeScaleCategory.bodyLarge:
+        return textTheme.bodyLarge!;
+      case TypeScaleCategory.bodyMedium:
+        return textTheme.bodyMedium!;
+      case TypeScaleCategory.bodySmall:
+        return textTheme.bodySmall!;
+    }
+  }
+
   TextStyle customStyleAppliedTextStyle(
       BuildContext context, TextStyleConverter? converter) {
     final textStyle = this.textStyle(context);

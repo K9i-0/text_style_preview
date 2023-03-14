@@ -1,4 +1,9 @@
-part of '../text_style_preview.dart';
+import 'package:flutter/material.dart';
+import 'package:text_style_preview/src/launch_type.dart';
+import 'package:text_style_preview/src/type_scale_category.dart';
+
+typedef DescriptionBuilder = String Function(
+    TypeScaleCategory typeScaleCategory, TextStyle textStyle);
 
 /// The style of the [TextStylePreview].
 class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
@@ -45,16 +50,25 @@ class TextStylePreviewStyle extends ThemeExtension<TextStylePreviewStyle> {
   });
 
   @override
-  ThemeExtension<TextStylePreviewStyle> copyWith() {
+  ThemeExtension<TextStylePreviewStyle> copyWith({
+    Color? backgroundColor,
+    Color? barrierColor,
+    double? modalHeight,
+    LaunchType? launchType,
+    bool? showDivider,
+    DescriptionBuilder? descriptionBuilder,
+    bool? reverse,
+    int? previewMaxLines,
+  }) {
     return TextStylePreviewStyle(
-      backgroundColor: backgroundColor,
-      barrierColor: barrierColor,
-      modalHeight: modalHeight,
-      launchType: launchType,
-      showDivider: showDivider,
-      descriptionBuilder: descriptionBuilder,
-      reverse: reverse,
-      previewMaxLines: previewMaxLines,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      barrierColor: barrierColor ?? this.barrierColor,
+      modalHeight: modalHeight ?? this.modalHeight,
+      launchType: launchType ?? this.launchType,
+      showDivider: showDivider ?? this.showDivider,
+      descriptionBuilder: descriptionBuilder ?? this.descriptionBuilder,
+      reverse: reverse ?? this.reverse,
+      previewMaxLines: previewMaxLines ?? this.previewMaxLines,
     );
   }
 
