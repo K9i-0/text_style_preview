@@ -1,0 +1,4 @@
+name: text_style_preview_workspace
+
+packages:
+  - packages/**
