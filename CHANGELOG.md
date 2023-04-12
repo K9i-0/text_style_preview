@@ -15,6 +15,32 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`text_style_preview` - `v0.1.4+1`](#text_style_preview---v0141)
+ - [`text_style_preview_lint` - `v0.1.0+1`](#text_style_preview_lint---v0101)
+
+---
+
+#### `text_style_preview` - `v0.1.4+1`
+
+ - **DOCS**: update links. ([c637df07](https://github.com/K9i-0/text_style_preview/commit/c637df07eba13017a3816527c586d915f24dc122))
+
+#### `text_style_preview_lint` - `v0.1.0+1`
+
+ - **DOCS**: update links. ([c637df07](https://github.com/K9i-0/text_style_preview/commit/c637df07eba13017a3816527c586d915f24dc122))
+
+
+## 2023-04-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`text_style_preview_lint` - `v0.1.0`](#text_style_preview_lint---v010)
 
 ---
