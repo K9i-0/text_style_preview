@@ -3,3 +3,8 @@ repository: https://github.com/K9i-0/text_style_preview
 
 packages:
   - packages/**
+
+command:
+  version:
+    branch: main
+  
