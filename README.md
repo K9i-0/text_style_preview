@@ -8,7 +8,7 @@ https://m3.material.io/styles/typography/type-scale-tokens
 text_style_preview allows you to easily preview TextStyle
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/K9i-0/text_style_preview/main/text_style_preivew.gif" alt="text_style_preview" />
+  <img src="https://raw.githubusercontent.com/K9i-0/text_style_preview/main/text_style_preview.gif" alt="text_style_preview" />
 </p>
 
 
