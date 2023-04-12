@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`text_style_preview_lint` - `v0.1.0`](#text_style_preview_lint---v010)
+
+---
+
+#### `text_style_preview_lint` - `v0.1.0`
+
+ - initial release
+
+
+## 2023-04-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`text_style_preview` - `v0.1.4`](#text_style_preview---v014)
 
 ---
