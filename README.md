@@ -76,3 +76,10 @@ Widget build(BuildContext context) {
   );
 }
 ```
+
+## Assist
+[text_style_preview_lint] is a package to make using text_style_preview more comfortable.
+
+[text_style_preview]: https://pub.dev/packages/text_style_preview
+[text_style_preview_lint]: https://pub.dev/packages/text_style_preview_lint
+[custom_lint]: https://pub.dev/packages/custom_lint
