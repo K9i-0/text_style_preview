@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: text_style_preview
+dependency_overrides:
+  text_style_preview:
+    path: ../text_style_preview
