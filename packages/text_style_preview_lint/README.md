@@ -5,7 +5,7 @@ text_style_preview_lint is a package to make using text_style_preview more comfo
 text_style_preview_lint is implemented using [custom_lint]. As such, it uses custom_lint's installation logic.  
 Long story short:
 
-- Add both riverpod_lint and custom_lint to your `pubspec.yaml`:
+- Add both text_style_preview_lint and custom_lint to your `pubspec.yaml`:
   ```yaml
   dev_dependencies:
     custom_lint:
