@@ -1,29 +1,25 @@
-## 0.1.4
-- Fix TextStylePreviewStyle copyWith.
+# Change Log
 
-## 0.1.3
-- Add screenshots to pubspec.yaml.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.1.2
-- Rename ScaleCategory to TypeScaleCategory.
+## 2023-04-12
 
-## 0.1.1
-- Make default style user-friendly.
+### Changes
 
-## 0.1.0
+---
 
-- Require Flutter sdk version changed to 3.0.0
-- Add reverse property.
-- Rename TextThemeType to ScaleCategory.
+Packages with breaking changes:
 
-## 0.0.3
+ - There are no breaking changes in this release.
 
-- Fix typo.
+Packages with other changes:
 
-## 0.0.2
+ - [`text_style_preview` - `v0.1.4`](#text_style_preview---v014)
 
-- Add gif.
+---
 
-## 0.0.1
+#### `text_style_preview` - `v0.1.4`
 
-- initial release.
+ - Manual Versioning
+
