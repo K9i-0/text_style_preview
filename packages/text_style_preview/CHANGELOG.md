@@ -1,4 +1,8 @@
 ## 0.1.4
+
+ - Manual Versioning
+
+## 0.1.4
 - Fix TextStylePreviewStyle copyWith.
 
 ## 0.1.3
