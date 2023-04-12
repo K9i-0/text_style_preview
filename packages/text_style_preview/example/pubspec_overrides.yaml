@@ -1,4 +1,6 @@
-# melos_managed_dependency_overrides: text_style_preview
+# melos_managed_dependency_overrides: text_style_preview,text_style_preview_lint
 dependency_overrides:
   text_style_preview:
     path: ..
+  text_style_preview_lint:
+    path: ../../text_style_preview_lint
