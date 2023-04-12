@@ -1,6 +1,6 @@
 name: text_style_preview_lint
 description: text_style_preview_lint is a package to make using text_style_preview more comfortable.
-version: 0.1.0+2
+version: 0.1.0+3
 homepage: https://twitter.com/K9i_apps
 repository: https://github.com/K9i-0/text_style_preview
 
@@ -9,5 +9,5 @@ environment:
 
 dependencies:
   custom_lint_builder: ^0.3.3
-  text_style_preview: ^0.1.4+2
+  text_style_preview: ^0.1.4+3
   analyzer: ^5.2.0

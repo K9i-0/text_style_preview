@@ -1,3 +1,7 @@
+## 0.1.4+3
+
+ - **FIX**: remove screenshot. ([29cd0993](https://github.com/K9i-0/text_style_preview/commit/29cd0993437f0a518982eaf5ab6f9bef20805830))
+
 ## 0.1.4+2
 
  - **FIX**: link. ([6afc4712](https://github.com/K9i-0/text_style_preview/commit/6afc4712aa1ed3cfc6f8985bf00b854d65bd18f3))
