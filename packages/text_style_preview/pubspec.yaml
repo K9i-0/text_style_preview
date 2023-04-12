@@ -16,8 +16,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-screenshots:
-  - description: 'Simple demo'
-    path: ../../text_style_preview.gif
-
 flutter:
