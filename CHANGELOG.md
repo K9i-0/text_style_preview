@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`text_style_preview_lint` - `v0.2.0`](#text_style_preview_lint---v020)
+
+---
+
+#### `text_style_preview_lint` - `v0.2.0`
+
+ - change minor
+
+
 ## 2023-04-12
 
 ### Changes

@@ -1,3 +1,7 @@
+## 0.2.0
+
+ - change minor
+
 ## 0.1.0+3
 
  - Update a dependency to the latest release.
