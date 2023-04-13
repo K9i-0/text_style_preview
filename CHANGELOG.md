@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`text_style_preview_lint` - `v0.2.0+2`](#text_style_preview_lint---v0202)
+
+---
+
+#### `text_style_preview_lint` - `v0.2.0+2`
+
+ - **FIX**: remove unnecessary dependencies. ([73211bcd](https://github.com/K9i-0/text_style_preview/commit/73211bcdcf1a395d24c9f0fe96739a2053417f50))
+
+
+## 2023-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`text_style_preview_lint` - `v0.2.0+1`](#text_style_preview_lint---v0201)
 
 ---
