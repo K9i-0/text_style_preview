@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`text_style_preview_lint` - `v0.2.0+1`](#text_style_preview_lint---v0201)
+
+---
+
+#### `text_style_preview_lint` - `v0.2.0+1`
+
+ - **FIX**: add flutter dependency. ([f0118469](https://github.com/K9i-0/text_style_preview/commit/f01184691e01a0c35a50e3e20ed4dcb9b11dbbfe))
+
+
+## 2023-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`text_style_preview_lint` - `v0.2.0`](#text_style_preview_lint---v020)
 
 ---

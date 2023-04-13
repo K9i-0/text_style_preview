@@ -1,3 +1,7 @@
+## 0.2.0+1
+
+ - **FIX**: add flutter dependency. ([f0118469](https://github.com/K9i-0/text_style_preview/commit/f01184691e01a0c35a50e3e20ed4dcb9b11dbbfe))
+
 ## 0.2.0
 
  - change minor
