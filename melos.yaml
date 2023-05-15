@@ -1,6 +1,8 @@
 name: text_style_preview_workspace
 repository: https://github.com/K9i-0/text_style_preview
 
+sdkPath: .fvm/flutter_sdk
+
 packages:
   - packages/**
 
